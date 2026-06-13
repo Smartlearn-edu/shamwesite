@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="siteTitle">مركز الشام للثقافة والتعليم</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="منصة مركز الشام للثقافة والتعليم - تعليم تفاعلي متميز للأطفال واليافعين في اللغة العربية والقرآن الكريم بأساليب حديثة وطاقم تعليمي مؤهل.">
+    <meta name="keywords" content="مركز الشام, تعليم عربي, تحفيظ قرآن, دورات أطفال, دورات معلمين, تجويد, مودل">
+    
+    <!-- Tailwind CSS & Icons CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        },
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        readex: ['Readex Pro', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen relative font-cairo">
+
+    <!-- Ambient background glows -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-teal-900/25 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-amber-900/15 rounded-full blur-[120px]"></div>
+    </div>
+
+    <!-- 1. HEADER & NAVIGATION (شريط التنقل العلوي) -->
+    <header class="sticky top-0 z-50 glass-navbar transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Brand Logo & Identity -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-teal-600 to-teal-400 flex items-center justify-center shadow-lg shadow-teal-500/20 group-hover:scale-105 transition-all">
+                    <i class="fas fa-book-quran text-white text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg md:text-xl font-extrabold bg-gradient-to-r from-teal-200 via-teal-400 to-amber-300 bg-clip-text text-transparent group-hover:opacity-90 transition-all" data-i18n="siteTitle">
+                        مركز الشام للثقافة والتعليم
+                    </h1>
+                </div>
+            </a>
+
+            <!-- Quick Search Bar (صندوق البحث السريع) -->
+            <div class="hidden md:flex items-center relative flex-1 max-w-md mx-4">
+                <input type="text" id="search-input" 
+                       data-i18n-placeholder="searchPlaceholder"
+                       placeholder="ابحث عن المقررات، المسابقات، أو الإعلانات..." 
+                       class="w-full bg-slate-900/80 border border-slate-700/60 rounded-2xl py-2 px-4 pr-10 pl-4 text-sm focus:outline-none focus:border-teal-500 text-slate-200 transition-all placeholder-slate-500">
+                <i class="fas fa-search absolute right-3 text-slate-500 text-sm"></i>
+            </div>
+
+            <!-- Quick Access Buttons, Language, Theme (أزرار الوصول السريع) -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
+                <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-yellow-400 hover:border-slate-700 transition-all flex items-center justify-center">
+                    <i id="theme-toggle-icon" class="fas fa-sun text-yellow-400"></i>
+                </button>
+
+                <!-- Language Switcher Dropdown/Buttons -->
+                <div class="flex rounded-xl bg-slate-900/60 border border-slate-800 p-1">
+                    <button class="lang-btn px-3 py-1 rounded-lg text-xs font-semibold border border-transparent transition-all" data-lang="ar">عربي</button>
+                    <button class="lang-btn px-3 py-1 rounded-lg text-xs font-semibold border border-transparent transition-all" data-lang="en">EN</button>
+                    <button class="lang-btn px-3 py-1 rounded-lg text-xs font-semibold border border-transparent transition-all" data-lang="de">DE</button>
+                </div>
+
+                <!-- Auth / Dashboard Buttons -->
+                <a href="https://alshamcenter.de/login" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-xl border border-slate-700/60 hover:bg-slate-900/60 text-slate-300 transition-all" data-i18n="loginBtn">
+                    تسجيل الدخول
+                </a>
+                <a href="https://alshamcenter.de/dashboard" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-white shadow-lg shadow-teal-500/10 transition-all hover:scale-105" data-i18n="dashboardBtn">
+                    لوحة التحكم
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- MOBILE SEARCH BAR (visible on mobile only) -->
+    <div class="md:hidden px-4 py-3 bg-slate-900/40 border-b border-slate-800/80 z-40 relative">
+        <div class="relative flex items-center">
+            <input type="text" id="mobile-search-input" 
+                   data-i18n-placeholder="searchPlaceholder"
+                   placeholder="ابحث عن المقررات، المسابقات، أو الإعلانات..." 
+                   class="w-full bg-slate-900 border border-slate-800 rounded-xl py-2 px-4 pr-10 text-sm focus:outline-none focus:border-teal-500 text-slate-200 placeholder-slate-500">
+            <i class="fas fa-search absolute right-3 text-slate-500 text-sm"></i>
+        </div>
+    </div>
+
+    <!-- 2. HERO WELCOME SECTION (البانر الرئيسي الترحيبي مع سلايدر آلي) -->
+    <section class="relative h-[650px] md:h-[700px] w-full overflow-hidden z-10">
+        <!-- Slider Container -->
+        <div class="slider-container w-full h-full">
+            
+            <!-- Slide 1: Welcome & Quran -->
+            <div class="slider-slide active bg-cover bg-center" style="background-image: linear-gradient(to top, rgba(15, 23, 42, 0.95) 20%, rgba(15, 23, 42, 0.4) 100%), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1470&auto=format&fit=crop');">
+                <div class="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center text-right">
+                    <div class="max-w-3xl space-y-6">
+                        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20 text-sm font-semibold animate-pulse-slow">
+                            <i class="fas fa-star-and-crescent text-teal-400"></i>
+                            ثقافة، علم، وقيم إسلامية
+                        </span>
+                        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-wide text-white" data-i18n="heroTitle1">
+                            بوابتكم نحو التميز في اللغة العربية والقرآن الكريم
+                        </h2>
+                        <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl" data-i18n="heroSubtitle1">
+                            تعليم تفاعلي متميز للأطفال واليافعين بمناهج علمية حديثة وطاقم تعليمي مؤهل.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="#how-to-register" class="px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold rounded-2xl shadow-lg shadow-amber-500/20 transition-all hover:scale-105" data-i18n="ctaRegister">
+                                طلب الانتساب والتسجيل السريع
+                            </a>
+                            <a href="#courses-directory" class="px-8 py-4 bg-slate-900/80 border border-slate-700/80 hover:bg-slate-800 text-white font-extrabold rounded-2xl transition-all hover:scale-105" data-i18n="exploreCourses">
+                                استكشف المقررات
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Teacher Training -->
+            <div class="slider-slide bg-cover bg-center" style="background-image: linear-gradient(to top, rgba(15, 23, 42, 0.95) 20%, rgba(15, 23, 42, 0.4) 100%), url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1470&auto=format&fit=crop');">
+                <div class="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center text-right">
+                    <div class="max-w-3xl space-y-6">
+                        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20 text-sm font-semibold">
+                            <i class="fas fa-graduation-cap"></i>
+                            برنامج التطوير المهني للمعلمين
+                        </span>
+                        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-wide text-white" data-i18n="heroTitle2">
+                            دورة إعداد وتأهيل المعلمين للأونلاين
+                        </h2>
+                        <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl" data-i18n="heroSubtitle2">
+                            طوّر مهاراتك التدريسية والتقنية والقيادية لتصبح معلماً متميزاً وقائداً تربوياً ناجحاً.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="#teacher-promo-spotlight" class="px-8 py-4 bg-teal-600 hover:bg-teal-500 text-white font-extrabold rounded-2xl shadow-lg shadow-teal-500/20 transition-all hover:scale-105" data-i18n="teacherPromoCTA">
+                                سجل الآن بالدورة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Library & Community -->
+            <div class="slider-slide bg-cover bg-center" style="background-image: linear-gradient(to top, rgba(15, 23, 42, 0.95) 20%, rgba(15, 23, 42, 0.4) 100%), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1580&auto=format&fit=crop');">
+                <div class="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center text-right">
+                    <div class="max-w-3xl space-y-6">
+                        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-sm font-semibold">
+                            <i class="fas fa-bookmark"></i>
+                            المطالعة الذاتية والثقافة العامة
+                        </span>
+                        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-wide text-white" data-i18n="heroTitle3">
+                            مكتبة الشام العامة والمجتمع التفاعلي
+                        </h2>
+                        <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl" data-i18n="heroSubtitle3">
+                            مساحة آمنة للمطالعة الحرة والكتب الرقمية والأنشطة الترفيهية الهادفة لجميع المستويات.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="#public-library" class="px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold rounded-2xl shadow-lg shadow-amber-500/20 transition-all hover:scale-105" data-i18n="joinLib">
+                                انضم إلى المكتبة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Slider Dots Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center gap-3 z-20">
+            <button class="slider-dot w-3.5 h-3.5 rounded-full bg-white/40 transition-all hover:bg-white" data-slide-index="0"></button>
+            <button class="slider-dot w-3.5 h-3.5 rounded-full bg-white/40 transition-all hover:bg-white" data-slide-index="1"></button>
+            <button class="slider-dot w-3.5 h-3.5 rounded-full bg-white/40 transition-all hover:bg-white" data-slide-index="2"></button>
+        </div>
+    </section>
+
+    <!-- 3. ANNOUNCEMENTS BOARD (لوحة الإعلانات وأخبار المركز) -->
+    <section class="py-12 bg-slate-900/40 border-y border-slate-900 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Horizontal News Ticker -->
+            <div class="glass-panel rounded-2xl p-4 flex items-center gap-4 overflow-hidden mb-12">
+                <span class="bg-red-600 text-white font-extrabold text-xs px-4 py-2 rounded-xl flex items-center gap-2 shrink-0 animate-pulse">
+                    <i class="fas fa-bullhorn"></i>
+                    <span data-i18n="announcementsTitle">أخبار وإعلانات عاجلة</span>
+                </span>
+                <div class="ticker-wrap flex-1">
+                    <div class="ticker-track text-sm md:text-base font-medium space-x-12 rtl:space-x-reverse text-slate-300">
+                        <span data-i18n="news1">📢 بدء التسجيل في دورة الصيف المكثفة لتلاوة وحفظ القرآن الكريم - سارع بحجز مقعدك!</span>
+                        <span data-i18n="news2">🏆 انطلاق مسابقة القارئ الصغير السنوية بمركز الشام - جوائز قيمة للفائزين.</span>
+                        <span data-i18n="news3">⏱️ إعلان جدول الحصص والاختبارات النصفية لجميع المراحل التعليمية على لوحة التحكم.</span>
+                        <!-- Duplicate for infinite scrolling seamless look -->
+                        <span data-i18n="news1">📢 بدء التسجيل في دورة الصيف المكثفة لتلاوة وحفظ القرآن الكريم - سارع بحجز مقعدك!</span>
+                        <span data-i18n="news2">🏆 انطلاق مسابقة القارئ الصغير السنوية بمركز الشام - جوائز قيمة للفائزين.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spotlight Course: Teacher Training Course (إعلان دورة إعداد المعلمين) -->
+            <div id="teacher-promo-spotlight" class="glass-panel rounded-3xl p-8 md:p-12 relative overflow-hidden border border-teal-500/20 bg-slate-900/50">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="grid md:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="md:col-span-8 space-y-6">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold" data-i18n="teacherPromoBadge">
+                            متميز ومتاح للتسجيل
+                        </span>
+                        <h3 class="text-2xl md:text-4xl font-extrabold text-white" data-i18n="teacherPromoTitle">
+                            دورة إعداد وتأهيل المعلمين
+                        </h3>
+                        <p class="text-slate-300 text-base md:text-lg leading-relaxed" data-i18n="teacherPromoDesc">
+                            دورة متكاملة تهدف إلى تطوير المهارات التدريسية، التقنية والقيادية للمعلمين المهتمين بالتعليم عن بعد عبر منصة مركز الشام وزوم وWordwall.
+                        </p>
+                        
+                        <!-- Mini bullet-list for aesthetic depth -->
+                        <div class="grid grid-cols-2 gap-4 text-sm text-slate-400">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-teal-400"></i>
+                                <span>التمكن من مناهج اللغة العربية</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-teal-400"></i>
+                                <span>تطبيقات زوم ومودل وWordwall</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-teal-400"></i>
+                                <span>طرق التدريس التفاعلية ولعب الأدوار</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-teal-400"></i>
+                                <span>شهادة معتمدة وتدريب عملي</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="#how-to-register" class="inline-flex items-center gap-2 px-8 py-4 bg-teal-600 hover:bg-teal-500 text-white font-extrabold rounded-2xl shadow-lg transition-all hover:scale-105">
+                                <span data-i18n="teacherPromoCTA">سجل الآن بالدورة</span>
+                                <i class="fas fa-user-plus text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 flex justify-center">
+                        <div class="w-56 h-56 rounded-3xl bg-slate-900 border border-slate-700/50 flex items-center justify-center p-4 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <i class="fas fa-chalkboard-teacher text-7xl text-teal-500 animate-float"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. STATS COUNTER SECTION (لوحة الإحصائيات والأرقام) -->
+    <section id="stats-counters" class="py-16 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            
+            <!-- Stat 1: Registered Learners -->
+            <div class="glass-panel p-6 rounded-3xl text-center hover:border-teal-500/30 transition-all hover:translate-y-[-4px] relative overflow-hidden bg-slate-900/50">
+                <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center">
+                    <i class="fas fa-user-graduate text-2xl"></i>
+                </div>
+                <div class="text-3xl md:text-4xl font-extrabold text-white mb-2 flex justify-center items-center gap-1">
+                    <span class="counter-value" data-target="627">0</span>
+                </div>
+                <p class="text-sm text-slate-400" data-i18n="statStudents">الطلاب النشطين</p>
+            </div>
+
+            <!-- Stat 2: Teachers -->
+            <div class="glass-panel p-6 rounded-3xl text-center hover:border-teal-500/30 transition-all hover:translate-y-[-4px] relative overflow-hidden bg-slate-900/50">
+                <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                    <i class="fas fa-users-cog text-2xl"></i>
+                </div>
+                <div class="text-3xl md:text-4xl font-extrabold text-white mb-2 flex justify-center items-center gap-1">
+                    <span class="counter-value" data-target="45">0</span>
+                    <span>+</span>
+                </div>
+                <p class="text-sm text-slate-400" data-i18n="statTeachers">المعلمين والمشرفين</p>
+            </div>
+
+            <!-- Stat 3: Graduated -->
+            <div class="glass-panel p-6 rounded-3xl text-center hover:border-teal-500/30 transition-all hover:translate-y-[-4px] relative overflow-hidden bg-slate-900/50">
+                <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center">
+                    <i class="fas fa-award text-2xl"></i>
+                </div>
+                <div class="text-3xl md:text-4xl font-extrabold text-white mb-2 flex justify-center items-center gap-1">
+                    <span class="counter-value" data-target="1200">0</span>
+                    <span>+</span>
+                </div>
+                <p class="text-sm text-slate-400" data-i18n="statGraduates">إجمالي الخريجين</p>
+            </div>
+
+            <!-- Stat 4: Active Courses -->
+            <div class="glass-panel p-6 rounded-3xl text-center hover:border-teal-500/30 transition-all hover:translate-y-[-4px] relative overflow-hidden bg-slate-900/50">
+                <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                    <i class="fas fa-book-open text-2xl"></i>
+                </div>
+                <div class="text-3xl md:text-4xl font-extrabold text-white mb-2 flex justify-center items-center gap-1">
+                    <span class="counter-value" data-target="38">0</span>
+                </div>
+                <p class="text-sm text-slate-400" data-i18n="statCourses">المقررات النشطة</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. OUR CURRICULUM (دليل المناهج والسياسة التعليمية المتبعة) -->
+    <section class="py-16 bg-slate-900/20 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white" data-i18n="curriculumTitle">
+                دليل المناهج والسياسة التعليمية المتبعة
+            </h2>
+            <p class="text-slate-400 text-base md:text-lg" data-i18n="curriculumSubtitle">
+                منهجية تعليمية مبتكرة تناسب كافة الفئات العمرية والمستويات الدراسية
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- Track 1: Preschool -->
+            <div class="glass-panel p-8 rounded-3xl hover:border-teal-500/30 transition-all group hover:-translate-y-2 bg-slate-900/50 flex flex-col justify-between">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fas fa-pencil-alt text-xl animate-float"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white" data-i18n="curriculumPreschool">منهج المرحلة التمهيدية</h3>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed" data-i18n="curriculumPreschoolDesc">
+                        تعريف الأطفال الصغار بأساسيات اللغة العربية من خلال الأناشيد، الرسم، والألعاب التفاعلية الممتعة لتهيئة القراءة والكتابة.
+                    </p>
+                </div>
+                <div class="border-t border-slate-800/80 pt-6 mt-6">
+                    <span class="text-xs text-teal-400 font-bold flex items-center gap-1.5">
+                        <i class="fas fa-stars text-amber-400"></i> مناسب للأعمار الصغيرة (4-6 سنوات)
+                    </span>
+                </div>
+            </div>
+
+            <!-- Track 2: Academic Stages (1-6) -->
+            <div class="glass-panel p-8 rounded-3xl hover:border-teal-500/30 transition-all group hover:-translate-y-2 bg-slate-900/50 flex flex-col justify-between border-teal-500/20">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fas fa-shapes text-xl animate-spin-slow" style="animation: spin 8s linear infinite;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white" data-i18n="curriculumStages">منهج المراحل الدراسية (أ و ب)</h3>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed" data-i18n="curriculumStagesDesc">
+                        من الصف الأول إلى السادس، حيث تنقسم كل مرحلة إلى مستويين (أ) و(ب) لضمان التدرج السليم وإتقان التحدث والاستماع والقراءة بطلاقة.
+                    </p>
+                </div>
+                <div class="border-t border-slate-800/80 pt-6 mt-6">
+                    <span class="text-xs text-amber-400 font-bold flex items-center gap-1.5">
+                        <i class="fas fa-school"></i> 6 مراحل دراسية متكاملة
+                    </span>
+                </div>
+            </div>
+
+            <!-- Track 3: Quran -->
+            <div class="glass-panel p-8 rounded-3xl hover:border-teal-500/30 transition-all group hover:-translate-y-2 bg-slate-900/50 flex flex-col justify-between">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fas fa-book-quran text-xl animate-float"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white" data-i18n="curriculumQuran">منهج القرآن الكريم والتربية الإسلامية</h3>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed" data-i18n="curriculumQuranDesc">
+                        منهج متكامل يبدأ بمرحلة تحضير التلاوة، ثم ضبط التجويد والأداء، وصولاً لحفظ كتاب الله مع غرس القيم الإسلامية النبيلة.
+                    </p>
+                </div>
+                <div class="border-t border-slate-800/80 pt-6 mt-6">
+                    <span class="text-xs text-teal-400 font-bold flex items-center gap-1.5">
+                        <i class="fas fa-check-circle"></i> ضبط، تجويد، وحفظ مستمر
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SMART COURSES PORTALS DIRECTORY (بوابات المقررات الدراسية الذكية) -->
+    <section id="courses-directory" class="py-16 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white" data-i18n="coursesTitle">
+                بوابات المقررات الدراسية الذكية
+            </h2>
+            <p class="text-slate-400 text-base" data-i18n="coursesSubtitle">
+                تصفح واختر مساقك التعليمي المباشر داخل مودل
+            </p>
+        </div>
+
+        <!-- Dynamic Category Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold glass-panel border border-slate-700 bg-teal-600 text-white shadow-lg transition-all" data-category="all" data-i18n="allCategories">جميع الأقسام</button>
+            <button class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold glass-panel border border-slate-700/60 hover:bg-slate-900 text-slate-300 transition-all" data-category="ar" data-i18n="curriculumStages">قسم اللغة العربية والثقافة</button>
+            <button class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold glass-panel border border-slate-700/60 hover:bg-slate-900 text-slate-300 transition-all" data-category="quran" data-i18n="curriculumQuran">قسم تلاوة القرآن</button>
+            <button class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold glass-panel border border-slate-700/60 hover:bg-slate-900 text-slate-300 transition-all" data-category="teachers" data-i18n="teacherPromoTitle">قسم إعداد المعلمين</button>
+            <button class="filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold glass-panel border border-slate-700/60 hover:bg-slate-900 text-slate-300 transition-all" data-category="admin">المساق الإداري والفورومز</button>
+        </div>
+
+        <!-- Dynamic Courses Grid (Bento style rendering inside app.js) -->
+        <div id="courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic Injection via JS -->
+        </div>
+
+        <!-- Course hour plans note (from the prompt details) -->
+        <div class="mt-8 p-6 glass-panel rounded-2xl border border-slate-800/80 max-w-4xl mx-auto flex items-start gap-4">
+            <i class="fas fa-info-circle text-amber-400 text-2xl mt-1 shrink-0"></i>
+            <div>
+                <span class="text-sm font-semibold text-slate-400" data-i18n="courseHourPlan">
+                    الخطة الدراسية تتوفر بعدة خيارات (60، 100، 150، 200، 260 ساعة) بناءً على تقييم الفترة التجريبية (15 يوماً). 3 حصص أسبوعياً، مدة الحصة 45 دقيقة.
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. AL SHAM PUBLIC LIBRARY (ركن المكتبة العامة للمركز) -->
+    <section id="public-library" class="py-16 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white" data-i18n="libraryTitle">
+                ركن المكتبة العامة للمركز
+            </h2>
+            <p class="text-slate-400 text-base" data-i18n="librarySubtitle">
+                مساحة مخصصة للقراءة والمطالعة الذاتية مقسمة ومصممة بصرياً لتناسب مستواك التعليمي
+            </p>
+        </div>
+
+        <!-- 3 Shelves Bento Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- Shelf 1: Introductory & Stage 1 -->
+            <div class="glass-panel p-6 rounded-3xl border border-slate-800 bg-slate-900/30 flex flex-col justify-between hover:border-teal-500/20 transition-all">
+                <div class="space-y-6">
+                    <div class="h-44 rounded-2xl bg-gradient-to-tr from-teal-950 to-teal-900 flex items-center justify-center p-4 border border-teal-800/30 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-teal-500/5 group-hover:scale-110 transition-transform"></div>
+                        <i class="fas fa-child-reaching text-6xl text-teal-400"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white" data-i18n="libLevel1">مكتبة التمهيدي والمستوى الأول</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="libLevel1Desc">
+                            كتب مصورة وقصص تفاعلية مصممة خصيصاً لجذب انتباه الأطفال وتنمية خيالهم بأسلوب ترفيهي بسيط.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-6 border-t border-slate-850 mt-6">
+                    <a href="https://alshamcenter.de/library/level1" class="w-full py-3 bg-teal-600/20 hover:bg-teal-600 text-teal-300 hover:text-white font-extrabold rounded-xl border border-teal-500/30 text-center block transition-all text-sm" data-i18n="joinLib">
+                        انضم إلى المكتبة
+                    </a>
+                </div>
+            </div>
+
+            <!-- Shelf 2: Intermediate levels (2 & 3) -->
+            <div class="glass-panel p-6 rounded-3xl border border-slate-800 bg-slate-900/30 flex flex-col justify-between hover:border-teal-500/20 transition-all">
+                <div class="space-y-6">
+                    <div class="h-44 rounded-2xl bg-gradient-to-tr from-amber-950 to-amber-900 flex items-center justify-center p-4 border border-amber-800/30 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-amber-500/5 group-hover:scale-110 transition-transform"></div>
+                        <i class="fas fa-book text-6xl text-amber-400"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white" data-i18n="libLevel2">مكتبة المستويات المتوسطة (الثاني والثالث)</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="libLevel2Desc">
+                            مجموعة متميزة من القصص القصيرة والكتب المبسطة لتنمية مهارات القراءة والاستيعاب والاعتماد على النفس.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-6 border-t border-slate-850 mt-6">
+                    <a href="https://alshamcenter.de/library/level2" class="w-full py-3 bg-teal-600/20 hover:bg-teal-600 text-teal-300 hover:text-white font-extrabold rounded-xl border border-teal-500/30 text-center block transition-all text-sm" data-i18n="joinLib">
+                        انضم إلى المكتبة
+                    </a>
+                </div>
+            </div>
+
+            <!-- Shelf 3: Advanced levels (4, 5 & 6) -->
+            <div class="glass-panel p-6 rounded-3xl border border-slate-800 bg-slate-900/30 flex flex-col justify-between hover:border-teal-500/20 transition-all">
+                <div class="space-y-6">
+                    <div class="h-44 rounded-2xl bg-gradient-to-tr from-teal-950 to-teal-900 flex items-center justify-center p-4 border border-teal-800/30 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-teal-500/5 group-hover:scale-110 transition-transform"></div>
+                        <i class="fas fa-bookmark text-6xl text-teal-400"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white" data-i18n="libLevel3">مكتبة المستويات المتقدمة (الرابع والخامس والسادس)</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="libLevel3Desc">
+                            روايات ناشئة، كتب ثقافية، مراجع لغوية، وكتب تاريخية مبسطة تثري الحصيلة الفكرية واللغوية للطلاب.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-6 border-t border-slate-850 mt-6">
+                    <a href="https://alshamcenter.de/library/level3" class="w-full py-3 bg-teal-600/20 hover:bg-teal-600 text-teal-300 hover:text-white font-extrabold rounded-xl border border-teal-500/30 text-center block transition-all text-sm" data-i18n="joinLib">
+                        انضم إلى المكتبة
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. DISCUSSION FORUMS SECTION (ركن المنتديات التخصصية للتواصل) -->
+    <section class="py-16 bg-slate-900/40 relative z-10 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white" data-i18n="forumsTitle">
+                    ركن المنتديات التخصصية للتواصل
+                </h2>
+                <p class="text-slate-400 text-base" data-i18n="forumsSubtitle">
+                    ساحات تفاعلية للحوار، النقاش وتبادل الخبرات بين أركان العملية التعليمية
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Forum 1: Staff Only -->
+                <div class="glass-panel p-8 rounded-3xl border border-red-500/10 hover:border-red-500/20 bg-slate-900/60 relative overflow-hidden flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-red-500/20 text-red-400 text-xs px-3 py-1 rounded-full border border-red-500/30 font-semibold" data-i18n="forumTeacherBadge">
+                                خاص بالمعلمين
+                            </span>
+                            <i class="fas fa-lock text-red-500 text-lg"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fas fa-briefcase text-teal-400"></i>
+                            <span data-i18n="forumTeacher">منتدى المعلمين (خاص بالمعلمين)</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed" data-i18n="forumTeacherDesc">
+                            ساحة مغلقة ومحمية مخصصة فقط لأعضاء الطاقم التربوي لتبادل الخبرات وتنسيق الجداول وحصص الطلاب.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800/80 mt-8">
+                        <button class="px-6 py-2.5 bg-red-500/20 border border-red-500/30 text-red-300 font-bold rounded-xl text-sm opacity-60 cursor-not-allowed">
+                            <i class="fas fa-shield-halved mr-1"></i> <span data-i18n="restrictedAccess">وصول مقيد للعامة</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Forum 2: Teacher Training -->
+                <div class="glass-panel p-8 rounded-3xl border border-teal-500/10 hover:border-teal-500/30 bg-slate-900/60 relative overflow-hidden flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-teal-500/20 text-teal-400 text-xs px-3 py-1 rounded-full border border-teal-500/30 font-semibold" data-i18n="forumTeacherTrainingBadge">
+                                للمشتركين بالدورة
+                            </span>
+                            <i class="fas fa-comments text-teal-400 text-lg animate-pulse-slow"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fas fa-users text-teal-400"></i>
+                            <span data-i18n="forumTeacherTraining">منتدى دورة إعداد المعلمين</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed" data-i18n="forumTeacherTrainingDesc">
+                            منتدى تفاعلي مفتوح للمتدربين والمشتركين ببرنامج تأهيل المعلمين لمناقشة المحاضرات والواجبات العملية.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800/80 mt-8">
+                        <a href="https://alshamcenter.de/forum/teachertraining" class="px-6 py-2.5 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl text-sm inline-block transition-all">
+                            <i class="fas fa-sign-in-alt mr-1"></i> <span data-i18n="joinNow">انضم الآن</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. REGISTRATION GUIDE & INSTRUCTIONAL STEPS (دليل استخدام المنصة) -->
+    <section id="how-to-register" class="py-16 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white" data-i18n="howToTitle">
+                دليل استخدام المنصة وطريقة التسجيل
+            </h2>
+            <p class="text-slate-400 text-base" data-i18n="howToSubtitle">
+                تعرف على خطوات الانضمام والبدء في رحلتك التعليمية بسهولة
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-8 items-center">
+            
+            <!-- Steps (Left) -->
+            <div class="md:col-span-6 space-y-6">
+                <!-- Step 1 -->
+                <div class="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:border-teal-500/20 transition-all bg-slate-900/40">
+                    <div class="w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0 font-bold border border-teal-500/30">
+                        1
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-white" data-i18n="step1">1. إنشاء حساب جديد</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="step1Desc">
+                            اضغط على زر التسجيل وقم بتعبئة بيانات الطالب وولي أمره وتأكيد البريد الإلكتروني.
+                        </p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:border-teal-500/20 transition-all bg-slate-900/40">
+                    <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 font-bold border border-amber-500/30">
+                        2
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-white" data-i18n="step2">2. تحديد المستوى والمقرر</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="step2Desc">
+                            يخضع الطالب لتقييم تحديد مستوى لتحديد الخطة الدراسية المناسبة (60 إلى 260 ساعة).
+                        </p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:border-teal-500/20 transition-all bg-slate-900/40">
+                    <div class="w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0 font-bold border border-teal-500/30">
+                        3
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-white" data-i18n="step3">3. تفعيل الاشتراك والتعلم</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="step3Desc">
+                            ادخل إلى لوحة التحكم وابدأ حضور الفصول التفاعلية عبر زوم وتفاعل مع الألعاب والمدرس.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video/Graphic mockup (Right) -->
+            <div class="md:col-span-6 flex justify-center">
+                <div class="w-full max-w-lg aspect-video rounded-3xl bg-slate-900 border border-slate-800 p-2 relative overflow-hidden group shadow-2xl">
+                    <!-- Glass Screen -->
+                    <div class="w-full h-full rounded-2xl bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1470&auto=format&fit=crop');">
+                        <div class="absolute inset-0 bg-slate-950/60 group-hover:bg-slate-950/40 transition-colors"></div>
+                        <!-- Play Button Overlay -->
+                        <button class="w-16 h-16 rounded-full bg-teal-600 hover:bg-teal-500 text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 z-10">
+                            <i class="fas fa-play text-xl ml-1 rtl:mr-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10. OUR TEACHERS GALLERY (لوحة الطاقم التعليمي) -->
+    <section class="py-16 bg-slate-900/40 relative z-10 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white" data-i18n="teachersTitle">
+                    لوحة الطاقم التعليمي المتميز
+                </h2>
+                <p class="text-slate-400 text-base" data-i18n="teachersSubtitle">
+                    نخبة من المعلمين والمعلمات ذوي الخبرة العالية في التعليم الإلكتروني
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Teacher 1 -->
+                <div class="glass-panel p-6 rounded-3xl border border-slate-800 bg-slate-900/60 text-center hover:border-teal-500/20 transition-all group">
+                    <div class="w-28 h-28 mx-auto mb-6 rounded-full border-2 border-teal-500/30 overflow-hidden relative group-hover:scale-105 transition-transform">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Teacher 1" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">أ. محمد الشامي</h3>
+                    <p class="text-xs text-teal-400 font-semibold mb-4" data-i18n="curriculumStages">معلم لغة عربية</p>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="teacher1Bio">
+                        معلم لغة عربية لغير الناطقين بها، خبرة تزيد عن 8 سنوات في تدريس الأطفال وتصميم الألعاب اللغوية.
+                    </p>
+                </div>
+
+                <!-- Teacher 2 -->
+                <div class="glass-panel p-6 rounded-3xl border border-slate-800 bg-slate-900/60 text-center hover:border-teal-500/20 transition-all group">
+                    <div class="w-28 h-28 mx-auto mb-6 rounded-full border-2 border-teal-500/30 overflow-hidden relative group-hover:scale-105 transition-transform">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Teacher 2" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">أ. رقية الخالد</h3>
+                    <p class="text-xs text-teal-400 font-semibold mb-4" data-i18n="curriculumQuran">معلمة تلاوة وقرآن</p>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="teacher2Bio">
+                        مقرئة وحافظة لكتاب الله، متخصصة في تجويد الأطفال وتبسيط أحكام التلاوة بطرق تعليمية شيقة.
+                    </p>
+                </div>
+
+                <!-- Teacher 3 -->
+                <div class="glass-panel p-6 rounded-3xl border border-slate-800 bg-slate-900/60 text-center hover:border-teal-500/20 transition-all group">
+                    <div class="w-28 h-28 mx-auto mb-6 rounded-full border-2 border-teal-500/30 overflow-hidden relative group-hover:scale-105 transition-transform">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Teacher 3" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">د. حسين الحسن</h3>
+                    <p class="text-xs text-teal-400 font-semibold mb-4" data-i18n="teacherPromoTitle">مشرف تربوي</p>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="teacher3Bio">
+                        مستشار تربوي ومشرف مساق إعداد المعلمين، له عدة أبحاث في دمج التقنية بالتعليم وتدريب المدربين.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. STUDENT SHOWCASE & CREATIVE CORNER (ركن إبداعات الطلاب والأنشطة) -->
+    <section class="py-16 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white" data-i18n="studentShowcaseTitle">
+                ركن إبداعات الطلاب والأنشطة
+            </h2>
+            <p class="text-slate-400 text-base" data-i18n="studentShowcaseSubtitle">
+                معرض إبداعي يبرز مهارات ومخرجات طلابنا المتميزين
+            </p>
+        </div>
+
+        <!-- 3 Tabs Switcher -->
+        <div class="flex justify-center gap-2 mb-10">
+            <button class="tab-btn px-6 py-2.5 rounded-xl text-sm font-semibold glass-panel border border-slate-700 bg-teal-600 text-white shadow-lg transition-all" data-tab="reading" data-i18n="tabReading">قراءة طلابنا</button>
+            <button class="tab-btn px-6 py-2.5 rounded-xl text-sm font-semibold glass-panel border border-slate-700/60 text-slate-300 hover:bg-slate-900 transition-all" data-tab="writing" data-i18n="tabWriting">كتابة طلابنا</button>
+            <button class="tab-btn px-6 py-2.5 rounded-xl text-sm font-semibold glass-panel border border-slate-700/60 text-slate-300 hover:bg-slate-900 transition-all" data-tab="activities" data-i18n="tabActivities">الأنشطة والألعاب</button>
+        </div>
+
+        <!-- Tab 1: Reading -->
+        <div id="tab-content-reading" class="tab-content active">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fas fa-microphone text-teal-400"></i>
+                        <span data-i18n="showcaseReadingTitle">مسابقة القارئ الصغير</span>
+                    </h3>
+                    <p class="text-slate-300 text-base leading-relaxed" data-i18n="showcaseReadingDesc">
+                        نماذج من تلاوات وقراءات طلابنا الرائعة التي نالت مراكز متقدمة في مسابقة القارئ الصغير المفتوحة.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-teal-950/20 border border-teal-500/20 flex items-center gap-3">
+                        <i class="fas fa-play-circle text-teal-400 text-3xl"></i>
+                        <div>
+                            <span class="text-xs font-bold text-teal-400">قارئ الأسبوع:</span>
+                            <p class="text-sm font-bold text-white">تلاوة سورة الملك - بصوت الطالب أحمد محمد</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="w-full max-w-sm aspect-square rounded-3xl bg-slate-900/60 border border-slate-800 p-4 flex flex-col justify-center items-center text-center relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-teal-950/20 to-transparent"></div>
+                        <i class="fas fa-file-audio text-6xl text-teal-500 mb-4 animate-pulse"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">تسجيل صوتي تفاعلي</h4>
+                        <audio controls class="w-full max-w-xs mt-4">
+                            <source src="" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Writing -->
+        <div id="tab-content-writing" class="tab-content">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fas fa-pen-nib text-teal-400"></i>
+                        <span data-i18n="showcaseWritingTitle">الخط والكتابة المتميزة</span>
+                    </h3>
+                    <p class="text-slate-300 text-base leading-relaxed" data-i18n="showcaseWritingDesc">
+                        صور من كتابات وواجبات وخطوط طلابنا المبدعين خلال مسار دراستهم للغة العربية والخط العربي بالمركز.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="aspect-square rounded-2xl overflow-hidden border border-slate-800 relative group">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform" alt="student writing 1">
+                    </div>
+                    <div class="aspect-square rounded-2xl overflow-hidden border border-slate-800 relative group">
+                        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform" alt="student writing 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Activities -->
+        <div id="tab-content-activities" class="tab-content">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fas fa-gamepad text-teal-400"></i>
+                        <span data-i18n="showcaseActivitiesTitle">الألعاب التفاعلية والمشاريع</span>
+                    </h3>
+                    <p class="text-slate-300 text-base leading-relaxed" data-i18n="showcaseActivitiesDesc">
+                        ألعاب تعليمية شيقة قام الطلاب بحلها أو تصميمها باستخدام Wordwall ومشاريع إبداعية متميزة.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <div class="w-full max-w-sm aspect-video rounded-3xl bg-slate-900 border border-slate-800 p-2 relative overflow-hidden group shadow-xl">
+                        <div class="w-full h-full rounded-2xl bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=400&auto=format&fit=crop');">
+                            <div class="absolute inset-0 bg-slate-950/70 group-hover:bg-slate-950/50 transition-colors"></div>
+                            <span class="px-4 py-2 bg-teal-600 rounded-xl text-xs font-bold text-white z-10 flex items-center gap-2 shadow-lg">
+                                <i class="fas fa-circle-play text-sm"></i> تجربة اللعبة التعليمية
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 12. MOTIVATION SECTION / HONOR ROLL (المساحة التحفيزية - لوحة الشرف) -->
+    <section id="motivation-section" class="py-20 relative overflow-hidden z-10 border-t border-slate-900 bg-slate-950">
+        
+        <!-- Animated Confetti & Sparkles injected in app.js -->
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3 relative z-10">
+            <span class="inline-flex items-center gap-1 bg-amber-500/20 text-amber-400 text-xs px-4 py-1.5 rounded-full border border-amber-500/30 font-bold uppercase tracking-wider animate-bounce">
+                <i class="fas fa-crown text-amber-400"></i> نجوم الأسبوع
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white" data-i18n="motivationTitle">
+                لوحة الشرف ونجوم الأسبوع
+            </h2>
+            <p class="text-slate-400 text-base" data-i18n="motivationSubtitle">
+                نحتفي بأبطال مركز الشام الذين تميزوا باجتهادهم وتفاعلهم المستمر
+            </p>
+        </div>
+
+        <!-- Honor Roll Grid -->
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8 relative z-10">
+            
+            <!-- Student 2 (Silver) -->
+            <div class="glass-panel p-6 rounded-3xl border border-slate-800/80 bg-slate-900/40 text-center relative overflow-hidden flex flex-col justify-between hover:border-teal-500/20 transition-all md:translate-y-4">
+                <div class="space-y-4">
+                    <div class="relative w-24 h-24 mx-auto">
+                        <div class="w-full h-full rounded-full border-2 border-slate-400/50 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop" class="w-full h-full object-cover">
+                        </div>
+                        <span class="absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 bg-slate-400 text-slate-900 text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold border-2 border-slate-950">
+                            ٢
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white" data-i18n="star2Name">سارة يوسف الخالد</h3>
+                        <p class="text-xs text-slate-400 mt-1" data-i18n="star2Class">المرحلة الأولى (ب)</p>
+                    </div>
+                </div>
+                <div class="border-t border-slate-800/85 pt-4 mt-6">
+                    <span class="text-xs text-teal-400 font-bold flex items-center justify-center gap-1.5">
+                        <i class="fas fa-star text-teal-400"></i> تفاعل وحضور متميز
+                    </span>
+                </div>
+            </div>
+
+            <!-- Student 1 (Gold - Spotlight Center) -->
+            <div class="glass-panel p-8 rounded-3xl border border-amber-500/35 bg-slate-900/60 text-center relative overflow-hidden flex flex-col justify-between hover:border-amber-500/50 transition-all shadow-xl shadow-amber-500/5 scale-105 z-20">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="space-y-4">
+                    <div class="relative w-28 h-28 mx-auto">
+                        <div class="w-full h-full rounded-full border-4 border-amber-500/70 overflow-hidden p-0.5">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <span class="absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 bg-amber-500 text-slate-950 text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold border-2 border-slate-950">
+                            ١
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-amber-300" data-i18n="star1Name">أحمد محمد العلي</h3>
+                        <p class="text-xs text-slate-400 mt-1" data-i18n="star1Class">المرحلة الثالثة (أ)</p>
+                    </div>
+                </div>
+                <div class="border-t border-slate-800/85 pt-4 mt-6">
+                    <span class="text-xs text-amber-400 font-bold flex items-center justify-center gap-1.5">
+                        <i class="fas fa-crown text-amber-400"></i> نجم الأسبوع الذهبي
+                    </span>
+                </div>
+            </div>
+
+            <!-- Student 3 (Bronze) -->
+            <div class="glass-panel p-6 rounded-3xl border border-slate-800/80 bg-slate-900/40 text-center relative overflow-hidden flex flex-col justify-between hover:border-teal-500/20 transition-all md:translate-y-4">
+                <div class="space-y-4">
+                    <div class="relative w-24 h-24 mx-auto">
+                        <div class="w-full h-full rounded-full border-2 border-amber-800/50 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop" class="w-full h-full object-cover">
+                        </div>
+                        <span class="absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 bg-amber-800 text-slate-200 text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold border-2 border-slate-950">
+                            ٣
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white" data-i18n="star3Name">عمر خالد القدسي</h3>
+                        <p class="text-xs text-slate-400 mt-1" data-i18n="star3Class">المستوى التمهيدي</p>
+                    </div>
+                </div>
+                <div class="border-t border-slate-800/85 pt-4 mt-6">
+                    <span class="text-xs text-teal-400 font-bold flex items-center justify-center gap-1.5">
+                        <i class="fas fa-star text-teal-400"></i> همة عالية واجتهاد
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 13. PARENTS COMMUNITY & FOOTER (مجتمع أولياء الأمور وتذييل الصفحة) -->
+    <section class="py-16 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900 bg-slate-950/40">
+        <div class="grid md:grid-cols-12 gap-8 items-center">
+            
+            <div class="md:col-span-8 space-y-6">
+                <h3 class="text-2xl md:text-3xl font-extrabold text-white" data-i18n="parentTitle">
+                    مجتمع أولياء الأمور ومدونة الشام
+                </h3>
+                <p class="text-slate-300 text-base leading-relaxed" data-i18n="parentDesc">
+                    روابط سريعة وقنوات مباشرة للتواصل التربوي بين الإدارة والمنزل لمتابعة دقيقة لمستوى طفلك التعليمي ومطالعة مقالات تربوية وموارد مجانية.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://alshamcenter.de/parents" class="px-6 py-3 bg-teal-600 hover:bg-teal-500 text-white font-extrabold rounded-2xl transition-all shadow-lg shadow-teal-500/10">
+                        زيارة منتدى أولياء الأمور
+                    </a>
+                    <a href="https://alshamcenter.de/blog" class="px-6 py-3 bg-slate-900 border border-slate-850 hover:bg-slate-800 text-slate-300 font-extrabold rounded-2xl transition-all">
+                        تصفح المدونة التربوية
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 flex justify-center">
+                <div class="w-full max-w-sm glass-panel p-6 rounded-3xl border border-slate-800 bg-slate-900/30 text-center relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-teal-500/5 group-hover:scale-105 transition-transform"></div>
+                    <i class="fas fa-users-rectangle text-5xl text-teal-400 mb-4 animate-float"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">القناة العامة للاتصال</h4>
+                    <p class="text-xs text-slate-400 mb-4">اشترك في قناة التليجرام العامة لتلقي الأخبار العاجلة ومواعيد العطل والدورات الجديدة.</p>
+                    <a href="https://t.me/alshamcenter" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0088cc] hover:bg-[#0088cc]/90 text-white font-bold rounded-xl text-sm transition-all">
+                        <i class="fab fa-telegram text-base"></i> الاشتراك بالقناة
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER (تذييل الصفحة) -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-8 mb-8">
+            
+            <div class="md:col-span-6 space-y-4">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center shadow-lg">
+                        <i class="fas fa-book-quran text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-extrabold text-white" data-i18n="siteTitle">مركز الشام للثقافة والتعليم</span>
+                </a>
+                <p class="text-sm text-slate-500 max-w-md leading-relaxed">
+                    مؤسسة رائدة في تقديم التعليم التفاعلي عن بعد للأطفال واليافعين، نجمع بين جودة التحصيل اللغوي وضبط القراءة والتلاوة مع الحفاظ على الهوية والثقافة الإسلامية.
+                </p>
+            </div>
+
+            <div class="md:col-span-6 space-y-4">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-slate-400" data-i18n="footerContact">اتصل بنا</h4>
+                <ul class="space-y-2.5 text-sm text-slate-500">
+                    <li class="flex items-center gap-2.5">
+                        <i class="fas fa-map-marker-alt text-teal-500"></i>
+                        <span data-i18n="footerAddress">Düsseldorf Str. 295, 47053 Duisburg</span>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fas fa-envelope text-teal-500"></i>
+                        <a href="mailto:alhussein@alshamcenter.de" class="hover:text-teal-400 transition-colors" data-i18n="footerEmail">alhussein@alshamcenter.de</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fab fa-whatsapp text-teal-500"></i>
+                        <a href="https://wa.me/491578303030" class="hover:text-teal-400 transition-colors">491578303030+</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900/60 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+            <p data-i18n="footerRights">جميع الحقوق محفوظة © مركز الشام للثقافة والتعليم</p>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-slate-400">سياسة الخصوصية</a>
+                <a href="#" class="hover:text-slate-400">شروط الاستخدام</a>
+                <a href="#" class="hover:text-slate-400">الدعم الفني</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 14. FLOATING WHATSAPP WIDGET (زر التواصل السريع العائم) -->
+    <div class="fixed bottom-6 left-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
+        
+        <!-- Live Chat Bubble Modal (Starts Hidden) -->
+        <div id="whatsapp-widget-modal" class="hidden flex-col w-80 glass-panel rounded-3xl border border-teal-500/20 overflow-hidden shadow-2xl pointer-events-auto transition-all duration-300">
+            <!-- Header -->
+            <div class="bg-teal-600 p-4 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold" data-i18n="whatsappFloatHeader">الدعم الفني لمركز الشام</h4>
+                        <span class="text-[10px] text-teal-100 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> متصل الآن
+                        </span>
+                    </div>
+                </div>
+                <button id="whatsapp-widget-close" class="text-white/80 hover:text-white transition-colors">
+                    <i class="fas fa-times text-sm"></i>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-4 bg-slate-950/90 space-y-3">
+                <div class="p-3 bg-slate-900 border border-slate-800 rounded-2xl rounded-tr-none text-xs text-slate-300 leading-relaxed" data-i18n="whatsappFloatText">
+                    السلام عليكم! كيف يمكننا مساعدتك اليوم في التسجيل أو تصفح المقررات؟
+                </div>
+            </div>
+            <!-- Footer Link -->
+            <div class="p-3 bg-slate-900 border-t border-slate-800 flex justify-center">
+                <a href="https://wa.me/491578303030?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2" 
+                   target="_blank" 
+                   class="w-full py-2 bg-green-600 hover:bg-green-500 text-white text-xs font-bold rounded-xl text-center flex items-center justify-center gap-2 transition-all">
+                    <i class="fab fa-whatsapp text-sm"></i>
+                    <span data-i18n="whatsappCTA">تحدث معنا الآن</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sticky Floating Button -->
+        <button id="whatsapp-widget-btn" class="w-16 h-16 rounded-full bg-green-600 hover:bg-green-500 text-white flex items-center justify-center shadow-lg shadow-green-500/20 hover:scale-110 active:scale-95 transition-all duration-300 animate-bounce pointer-events-auto">
+            <i class="fab fa-whatsapp text-3xl"></i>
+            <!-- Notification ping -->
+            <span class="absolute top-0 right-0 w-4.5 h-4.5 bg-red-500 border-2 border-slate-950 rounded-full flex items-center justify-center text-[8px] font-bold text-white">1</span>
+        </button>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

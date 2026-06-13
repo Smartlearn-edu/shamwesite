@@ -1,0 +1,137 @@
+You are an expert web designer. I want you to create a high-converting, beautiful, responsive landing page using HTML and Tailwind CSS for my e-learning platform named 'مركز الشام'.
+
+### SLOGAN / TAGLINE
+"مركز الشام للثقافة والتعليم "
+
+### PROJECT OVERVIEW
+- **Identity:** Site Type: School (K-12) | Content Focus: Islamic Education
+- **Business Model:** Paid Courses
+- **Target Audience:** Children & Parents
+- **Vibe & Tone:** Professional & Trustworthy
+- **Primary Language & Direction:** English (Auto-detect)
+- **Other Supported Languages:** English, German, Arabic
+
+### DESIGN & CONTENT REQUIREMENTS
+1. **Design Style:** Choose a theme that fits the 'playful' aesthetic.
+2. **Hero Section:** Include a strong headline and a primary CTA button that says 'Explore Courses'. 
+3. **Platform Statistics:** Please include a 'Platform Statistics' section featuring these real numbers:
+   - 38 Active Courses
+   - 627 Registered Learners
+   - Over 2 Years Active
+   - 48 Questions in Bank
+   - 792 Learning Activities
+
+4. **Navigation Menu & Pages:** Include a clean, sticky navbar. Ensure navigation links for the following required pages: Home, About Us, Courses.
+   *(Note: You only need to code the Home page, but show these links in the header/footer)*
+5. **Categories & Courses Data (JSON):** The platform has the following hierarchy of categories and courses. Please display them as attractive interactive cards, accordions, or a grid structure based on this JSON payload:
+```json
+[
+    {
+        "name": "قسم اللغة العربية والثقافة",
+        "subcategories": [
+            {
+                "name": "المرحلة التمهيدية"
+            },
+            {
+                "name": "المرحلة التعليمية الأولى",
+                "courses": [
+                    {
+                        "name": " المرحلة الأولى المستوى ( أ )",
+                        "description": "هذه المرحلة تهدف إلى: تعريف الأطفال الصغار بأساسيات اللغة العربية وتطوير مهاراتهم اللغوية الأساسية، حيث تعتبر هذه المرحلة المقدمة الأولى للغة العربية ويساعد الأطفال على فهم الحروف والكلمات وبناء الجمل وقراءة النصوص الصغيرة وفهمها.\r\nأهم عوامل المرحلة التمهيدي :\r\n\r\n \r\nتطوير مهارات الاستماع والتحدث: يتم تشجيع الطلاب على الاستماع على الجمل والقصص البسيطة باللغة العربية، كما يتم تدريبهم على التحدث بوضوح وتكوين الجمل والنصوص قصيرة باستخدام المفردات التي تعلموها.\r\nتعزيز المهارات القرائية: يتم تدريب الطلاب على قراءة الجمل والنصوص البسيطة باستخدام المفردات التي تعلموها، حيث يتم استخدام قصص قصيرة وكتب مصورة مناسبة للطلاب لتعزيز مهارات القراءة الأساسية.\r\nأنشطة تفاعلية: يستخدم المدرسون وسائل تعليمية متنوعة وأنشطة تفاعلية مثل الألعاب والأناشيد والرسم لجعل عملية التعلم مشوقة وممتعة للطلاب، ويتم تنظيم ألعاب تفاعلية كي يتم التدرب على الجمل والنصوص، ويتم تعزيز التعلم من خلال المشاركة النشطة والتفاعل مع الأصدقاء.\r\nتقييم ومتابعة: يتم تقييم تقدم الأطفال في المستوى التمهيدي من خلال تقييمات مستمرة ومتابعة دورية، وتتم مراقبة قدرة الطلاب على التعرف على الحروف وتشكيل الكلمات وبناء الجمل وفهم المفردات المعروضة، حيث يتم استخدام هذه التقييمات لتحديد المجالات التي تحتاج إلى تعزيز وتطوير إضافي.\r\nالخطة الدراسية: هناك خمس خطط دراسية لهذه المرحلة: \r\n\r\n\r\n\r\nالخطة رقم 1\r\n60  ساعة\r\n\r\n\r\nالخطة رقم 2\r\n100 ساعة\r\n\r\n\r\nالخطة رقم 3\r\n150 ساعة\r\n\r\n\r\nالخطة رقم 4\r\n200 ساعة\r\n\r\n\r\nالخطة رقم 5\r\n\r\n260 ساعة\r\n\r\n\r\n\r\nالخطة الحرة\r\nأقل من 50 ساعة\r\n\r\n\r\nالخطة الخاصة\r\nمقيد حسب الاتفاق\r\n\r\n\r\n\r\nيتم تحديد الخطة الدراسية حسب العمر والمعلومات السابقة في اللغة العربية ومدى إجادة الطالب للغة العربية وعوامل أخرى يتم تحديدها خلال الفترة التجريبية والتي تبلغ 15 يوماً، ويتم تعلم كل هذه الخطط بمعدل ثلاث حصص دراسية (موزعة على ثلاثة أيام  في الإسبوع)، وكل حصة 45 دقيقة، وعدد الطلاب 8-12طالباً."
+                    },
+                    {
+                        "name": " المرحلة الأولى المستوى ( ب )",
+                        "description": "هذه المرحلة تهدف إلى: تعريف الأطفال الصغار بأساسيات اللغة العربية وتطوير مهاراتهم اللغوية الأساسية، حيث تعتبر هذه المرحلة المقدمة الأولى للغة العربية ويساعد الأطفال على فهم الحروف والكلمات وبناء الجمل وقراءة النصوص الصغيرة وفهمها.\r\nأهم عوامل المرحلة التمهيدي :\r\n\r\n \r\nتطوير مهارات الاستماع والتحدث: يتم تشجيع الطلاب على الاستماع على الجمل والقصص البسيطة باللغة العربية، كما يتم تدريبهم على التحدث بوضوح وتكوين الجمل والنصوص قصيرة باستخدام المفردات التي تعلموها.\r\nتعزيز المهارات القرائية: يتم تدريب الطلاب على قراءة الجمل والنصوص البسيطة باستخدام المفردات التي تعلموها، حيث يتم استخدام قصص قصيرة وكتب مصورة مناسبة للطلاب لتعزيز مهارات القراءة الأساسية.\r\nأنشطة تفاعلية: يستخدم المدرسون وسائل تعليمية متنوعة وأنشطة تفاعلية مثل الألعاب والأناشيد والرسم لجعل عملية التعلم مشوقة وممتعة للطلاب، ويتم تنظيم ألعاب تفاعلية كي يتم التدرب على الجمل والنصوص، ويتم تعزيز التعلم من خلال المشاركة النشطة والتفاعل مع الأصدقاء.\r\nتقييم ومتابعة: يتم تقييم تقدم الأطفال في المستوى التمهيدي من خلال تقييمات مستمرة ومتابعة دورية، وتتم مراقبة قدرة الطلاب على التعرف على الحروف وتشكيل الكلمات وبناء الجمل وفهم المفردات المعروضة، حيث يتم استخدام هذه التقييمات لتحديد المجالات التي تحتاج إلى تعزيز وتطوير إضافي.\r\nالخطة الدراسية: هناك خمس خطط دراسية لهذه المرحلة: \r\n\r\n\r\n\r\nالخطة رقم 1\r\n60  ساعة\r\n\r\n\r\nالخطة رقم 2\r\n100 ساعة\r\n\r\n\r\nالخطة رقم 3\r\n150 ساعة\r\n\r\n\r\nالخطة رقم 4\r\n200 ساعة\r\n\r\n\r\nالخطة رقم 5\r\n\r\n260 ساعة\r\n\r\n\r\n\r\nالخطة الحرة\r\nأقل من 50 ساعة\r\n\r\n\r\nالخطة الخاصة\r\nمقيد حسب الاتفاق\r\n\r\n\r\n\r\nيتم تحديد الخطة الدراسية حسب العمر والمعلومات السابقة في اللغة العربية ومدى إجادة الطالب للغة العربية وعوامل أخرى يتم تحديدها خلال الفترة التجريبية والتي تبلغ 15 يوماً، ويتم تعلم كل هذه الخطط بمعدل ثلاث حصص دراسية (موزعة على ثلاثة أيام  في الإسبوع)، وكل حصة 45 دقيقة، وعدد الطلاب 8-12طالباً."
+                    }
+                ]
+            },
+            {
+                "name": "المرحلة التعليمية الثانية",
+                "courses": [
+                    {
+                        "name": " المرحلة الثانية المستوى ( أ )",
+                        "description": "الخطة الدراسية: هناك خمس خطط دراسية لهذه المرحلة: \r\n\r\n\r\n\r\nالخطة رقم 1\r\n60  ساعة\r\n\r\n\r\nالخطة رقم 2\r\n100 ساعة\r\n\r\n\r\nالخطة رقم 3\r\n150 ساعة\r\n\r\n\r\nالخطة رقم 4\r\n200 ساعة\r\n\r\n\r\nالخطة رقم 5\r\n\r\n260 ساعة\r\n\r\n\r\n\r\nالخطة الحرة\r\nأقل من 50 ساعة\r\n\r\n\r\nالخطة الخاصة\r\nمقيد حسب الاتفاق\r\n\r\n\r\n\r\nيتم تحديد الخطة الدراسية حسب العمر والمعلومات السابقة في اللغة العربية ومدى إجادة الطالب للغة العربية وعوامل أخرى يتم تحديدها خلال الفترة التجريبية والتي تبلغ 15 يوماً، ويتم تعلم كل هذه الخطط بمعدل ثلاث حصص دراسية (موزعة على ثلاثة أيام  في الإسبوع)، وكل حصة 45 دقيقة، وعدد الطلاب 8-12طالباً."
+                    },
+                    {
+                        "name": " المرحلة الثانية المستوى ( ب )",
+                        "description": "الخطة الدراسية: هناك خمس خطط دراسية لهذه المرحلة: \r\n\r\n\r\n\r\nالخطة رقم 1\r\n60  ساعة\r\n\r\n\r\nالخطة رقم 2\r\n100 ساعة\r\n\r\n\r\nالخطة رقم 3\r\n150 ساعة\r\n\r\n\r\nالخطة رقم 4\r\n200 ساعة\r\n\r\n\r\nالخطة رقم 5\r\n\r\n260 ساعة\r\n\r\n\r\n\r\nالخطة الحرة\r\nأقل من 50 ساعة\r\n\r\n\r\nالخطة الخاصة\r\nمقيد حسب الاتفاق\r\n\r\n\r\n\r\nيتم تحديد الخطة الدراسية حسب العمر والمعلومات السابقة في اللغة العربية ومدى إجادة الطالب للغة العربية وعوامل أخرى يتم تحديدها خلال الفترة التجريبية والتي تبلغ 15 يوماً، ويتم تعلم كل هذه الخطط بمعدل ثلاث حصص دراسية (موزعة على ثلاثة أيام  في الإسبوع)، وكل حصة 45 دقيقة، وعدد الطلاب 8-12طالباً."
+                    }
+                ]
+            },
+            {
+                "name": "المرحلة التعليمية الثالثة",
+                "courses": [
+                    {
+                        "name": " المرحلة الثالثة المستوى ( أ )",
+                        "description": "الخطة الدراسية: هناك خمس خطط دراسية لهذه المرحلة: \r\n\r\n\r\n\r\nالخطة رقم 1\r\n60  ساعة\r\n\r\n\r\nالخطة رقم 2\r\n100 ساعة\r\n\r\n\r\nالخطة رقم 3\r\n150 ساعة\r\n\r\n\r\nالخطة رقم 4\r\n200 ساعة\r\n\r\n\r\nالخطة رقم 5\r\n\r\n260 ساعة\r\n\r\n\r\n\r\nالخطة الحرة\r\nأقل من 50 ساعة\r\n\r\n\r\nالخطة الخاصة\r\nمقيد حسب الاتفاق\r\n\r\n\r\n\r\nيتم تحديد الخطة الدراسية حسب العمر والمعلومات السابقة في اللغة العربية ومدى إجادة الطالب للغة العربية وعوامل أخرى يتم تحديدها خلال الفترة التجريبية والتي تبلغ 15 يوماً، ويتم تعلم كل هذه الخطط بمعدل ثلاث حصص دراسية (موزعة على ثلاثة أيام  في الإسبوع)، وكل حصة 45 دقيقة، وعدد الطلاب 8-12طالباً."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "قسم تلاوة القرآن الكريم",
+        "courses": [
+            {
+                "name": "مرحلة تحضير تلاوة القرآن الكريم"
+            },
+            {
+                "name": "مرحلة ضبط تلاوة القرآن الكريم"
+            },
+            {
+                "name": "مرحلة حفظ القرآن الكريم"
+            }
+        ]
+    },
+    {
+        "name": "قسم إعداد المعلمين",
+        "courses": [
+            {
+                "name": "إعداد المعلمين (قسم اللغة العربية والثقافة)",
+                "description": "1. دورة إعداد المعلمين (قسم اللغة العربية والثقافة):* البرامج.&nbsp;* ضبط المادة وإتقانها.&nbsp;* الخطة الدراسية.&nbsp;* السجلات والتدوين.&nbsp;* الطريقة التعليمية.&nbsp;* الاختبارات.&nbsp;* مراتب النجاح والخطة العلاجية.&nbsp;&nbsp;2. دورة المهارات التقنية:&nbsp;* برنامج الزوم.&nbsp;* منصة مركز الشام للثقافة والتعليم.&nbsp;* البرنامج الوسيط Moodle.* إنشاء الألعاب التعليمية Wordwall.&nbsp;3. دورة إعداد المعلم الماهر.&nbsp;* التمكن من المادة.* الخطة الدراسية.* السجلات والتدوين.* طرق التدريس.* اللعب والمرح.* المكافآت والعقوبات.* ردات الفعل وعواقبها.* رفع قيمة الطلاب.&nbsp;&nbsp;&nbsp;تُقدمُ الدورة للمهتمين بالتعليم عن بعد، وتهدف إلى تطوير مهاراتهم التدريسية، والتقنية، والقيادية حتى يصبح المعلم مصدراً &nbsp;لفخر المركز، وأولياء الأمور، والطلاب.&nbsp;تتميز دورة إعداد المعلمين في مركز الشام بالمرونة والتفاعل، حيث تبدأ رحلة التميز بالمقرر النظري ثم الإستعراضي وبعد ذلك التطبيقي ونختم في المشاريع العملية، وستحصل على فرصة للتدريب العملي في الفصول الدراسية الحقيقية والحصول على ملاحظات وتوجيهات فورية من المدربين.مركز الشام يكبر بكم كماتكبرون به .&nbsp;&nbsp;&nbsp;"
+            }
+        ]
+    },
+    {
+        "name": "قسم المساق الإداري",
+        "courses": [
+            {
+                "name": " المساق الإداري"
+            },
+            {
+                "name": "حجز موعد"
+            },
+            {
+                "name": "منتدى المعلمين"
+            },
+            {
+                "name": "القناة العامة لمركز الشام",
+                "description": "القناة العامة لمركز الشام للثقافة والتعليم هي وسيلة اتصال رئيسية تستخدمها إدارة المركز لنشر جميع المعلومات الحديثة والتغيرات والتطورات التي تحدث في المركز. تهدف هذه القناة إلى ضمان وصول المعلومات بشكل سريع وفعال إلى جميع الطلاب وأولياء الأمور المشتركين في القناة.من خلال الاشتراك في هذه القناة ومتابعتها، ستصل جميع المعلومات المتعلقة بالتطورات والأحداث في مركز الشام إلى الطلاب وأولياء الأمور دون أي تأخير. ستتمكن من الحصول على تحديثات حول المجموعات التعليمية، والمناهج الدراسية، والفعاليات والأحداث القادمة، وأي تغيرات في إجراءات المركز بشكل عام.تعتبر هذه القناة وسيلة موثوقة وشاملة للتواصل والمعلومات، حيث ستظل على دراية بجميع التطورات في المركز وستكون مطلعا على كل ما يتعلق بتعليم اللغة العربية والقرآن الكريم. ستتمكن أيضا من معرفة أي تحسينات أو تغييرات في البرامج والخدمات التي يقدمها المركز.تعد هذه القناة فرصة للتواصل المباشر بين إدارة المركز وأولياء الأمور، حيث يتم نشر المعلومات الخاصة بالمجموعات التعليمية وأيضا المعلومات الخاصة بالتطورات المهمة في المركز. يمكنك الاعتماد على هذه القناة للحصول على معلومات شاملة ومحدثة بشكل منتظم، مما يساعدك في متابعة تعليم أطفالك والمشاركة الفعالة في تطورات المركز."
+            },
+            {
+                "name": "منتدى أولياء الأمور",
+                "description": "منتدى أولياء الأمور في مركز الشام للثقافة والتعليم هو منصة افتراضية تهدف إلى تعزيز التواصل والتفاعل بين أولياء الأمور وإدارة المركز وبين أنفس الأولياء. يتم توفير هذا المنتدى لتمكين الأولياء من متابعة تعليم أبنائهم في مجالات اللغة العربية والقرآن الكريم والثقافة العامة.تهدف هذه المنصة إلى توفير العديد من الميزات والخدمات لأولياء الأمور، بما في ذلك:1. الاطلاع على الإعلانات العامة: يتم نشر الإعلانات العامة على المنتدى بشكل دوري ومنتظم، وتشمل هذه الإعلانات تحديثات المجموعات التعليمية وبرامج الدروس والفعاليات المرتبطة بها. يتمكن الأولياء من متابعة هذه الإعلانات والحصول على المعلومات اللازمة لتعليم أطفالهم بشكل منتظم.2. مناقشة وتبادل المعلومات: يتيح المنتدى لأولياء الأمور التواصل والتفاعل مع بعضهم البعض ومع المدرسين والمعلمين. يمكنهم طرح الأسئلة والاستفسارات ومشاركة الخبرات والمشاكل المتعلقة بتعليم اللغة العربية لأطفالهم.3. مشاركة الموارد التعليمية: يمكن للأولياء مشاركة الموارد التعليمية المفيدة مع بعضهم البعض، مثل الكتب الإلكترونية والمقاطع الصوتية والفيديوهات المفيدة لتعلم اللغة العربية.4. إجراء مناقشات وورش عمل: يمكن تنظيم مناقشات وورش عمل عبر المنتدى، حيث يمكن للأولياء الاستفادة من تجارب بعضهم البعض وتبادل الأفكار والاستراتيجيات لتعزيز تعلم أطفالهم.تهدف هذه المنصة إلى تعزيز التواصل الفعال بين إدارة المركز وأولياء الأمور، وتوفير بيئة تعليمية شاملة ومحفزة لتعلم اللغة العربية لأطفالهم."
+            }
+        ]
+    }
+]
+```
+6. **Contact & Footer:** Include a footer with the following contact information & social links:
+   - Email: alhussein@alshamcenter.de
+   - Address: Düsseldorf Str. 295, 47053 Duisburg
+
+### DESIGN AESTHETICS & ELITE PATTERNS (CRITICAL)
+1. **Primary Design Reference (Crucial!):** Meticulously study and emulate the aesthetic layout, component sizing, spacing pacing, and high-end visual luxury of this exact URL/template: https://www.typeui.sh/design-skills/glassmorphism.
+2. **Design Quality (WOW Factor):** Do NOT build a basic, generic Minimum Viable Product. Create a breathtaking, creative, eye-catching, ultra-premium experience. Apply the visual storytelling logic of elite educational websites.
+3. **Layout & Grids (Bento Box):** Reject standard, boring 3-column Bootstrap-style identical height cards. Instead, use beautiful asymmetrical, interlocking 'Bento Box' style CSS grid layouts, combining large feature blocks with smaller descriptive squares for sections like News, Courses, or Community.
+4. **Expansive Hero & Storytelling:** The Hero section must be full-bleed (edge-to-edge), immersive, and visually explosive, accompanied by minimalist but massively impactful typography overlaid. Build a narrative flow as the user scrolls, pushing connection and value rather than just dumping course lists.
+5. **Micro-Interactions & Parallax:** Implement smooth scroll-triggered fade-ins (reveal animations). Enhance user engagement with slow scale-zooms on images upon hover. Use Tailwind 'group', 'peer', and 'transition' classes heavily to make the interface feel alive.
+6. **Editorial Typography & Hierarchy:** Avoid generic font pairing and never use browser-default fonts. Embed premium Google Fonts with extreme contrast: massive, elegant headings (using modern serif or geometric sans-serif) juxtaposed with ultra-legible body paragraphs.
+7. **Visual Enrichment:** Emphasize smooth subtle gradients, premium soft high-spread box-shadows (e.g., shadow-2xl with low opacity), oversized border radiuses (e.g., rounded-3xl), subtle floating navigation bars, and extensive, luxurious whitespace.
+
+### TECHNICAL SPECIFICATIONS FOR TARGET AI
+- **Task Execution:** You are Antigravity, an elite autonomous DeepMind IDE agent! Create a new directory named `theme_export_preview` right here in the current workspace.
+- **Implementation:** Write the HTML, CSS, and JS into neatly structured separate files within that directory. Once compiled, optionally use `run_command` to start a local development server (e.g. `python3 -m http.server` or `npm run dev`) so the user can instantly see your breathtaking work. Surprise me!
+- **General Polish:** The design must be exceptionally modern, completely responsive (mobile-first), and ready to run immediately in a browser/container.
+- **Asset Policy:** Do not use ugly empty gray placeholders. If aesthetic imagery is required, embed visually striking Unsplash standard URLs (e.g., source.unsplash.com or specific beautiful stock URLs) to ensure the design feels real and expensive.
+PLAN FIRST,AND LET ME REVIEW THE PALN
