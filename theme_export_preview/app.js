@@ -315,35 +315,40 @@ const coursesData = [
                 "nameEN": "Preschool / Introductory Stage",
                 "nameDE": "Vorschule / Einführungsstufe",
                 "hours": "Free / Custom Plan",
-                "description": "تعريف الأطفال بأساسيات الحروف والقراءة البسيطة عبر الألعاب والأناشيد التفاعلية لجعل التعلم ممتعاً وشيقاً."
+                "description": "تعريف الأطفال بأساسيات الحروف والقراءة البسيطة عبر الألعاب والأناشيد التفاعلية لجعل التعلم ممتعاً وشيقاً.",
+                "link": "https://alshamcenter.de/local/smartcatalog/?q=category0:23%20category1:2"
             },
             {
                 "name": "المرحلة الأولى المستوى ( أ )",
                 "nameEN": "Stage 1 - Level A",
                 "nameDE": "Stufe 1 - Niveau A",
                 "hours": "60 - 260 Hours",
-                "description": "تعريف الأطفال بأساسيات اللغة وتطوير مهارات الاستماع والتحدث وتكوين جمل بسيطة وبناء الحصيلة اللغوية الأولية."
+                "description": "تعريف الأطفال بأساسيات اللغة وتطوير مهارات الاستماع والتحدث وتكوين جمل بسيطة وبناء الحصيلة اللغوية الأولية.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=48"
             },
             {
                 "name": "المرحلة الأولى المستوى ( ب )",
                 "nameEN": "Stage 1 - Level B",
                 "nameDE": "Stufe 1 - Niveau B",
                 "hours": "60 - 260 Hours",
-                "description": "تعزيز القراءة والكتابة والنصوص البسيطة وتوسيع المفردات والتقييم المستمر لضمان إتقان القراءة السليمة للكلمات والعبارات."
+                "description": "تعزيز القراءة والكتابة والنصوص البسيطة وتوسيع المفردات والتقييم المستمر لضمان إتقان القراءة السليمة للكلمات والعبارات.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=49"
             },
             {
                 "name": "المرحلة الثانية المستوى ( أ )",
                 "nameEN": "Stage 2 - Level A",
                 "nameDE": "Stufe 2 - Niveau A",
                 "hours": "60 - 260 Hours",
-                "description": "تطوير القراءة السريعة ومفهوم الجمل الاسمية والفعلية ومحادثة يومية مبسطة بأساليب تعليمية تفاعلية حديثة."
+                "description": "تطوير القراءة السريعة ومفهوم الجمل الاسمية والفعلية ومحادثة يومية مبسطة بأساليب تعليمية تفاعلية حديثة.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=50"
             },
             {
                 "name": "المرحلة الثانية المستوى ( ب )",
                 "nameEN": "Stage 2 - Level B",
                 "nameDE": "Stufe 2 - Niveau B",
                 "hours": "60 - 260 Hours",
-                "description": "دراسة قواعد الإملاء والكتابة الإبداعية للمواضيع الصغيرة وفهم نصوص أوسع واستخلاص الأفكار الرئيسية والفرعية."
+                "description": "دراسة قواعد الإملاء والكتابة الإبداعية للمواضيع الصغيرة وفهم نصوص أوسع واستخلاص الأفكار الرئيسية والفرعية.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=73"
             },
             {
                 "name": "المرحلة الثالثة المستوى ( أ )",
@@ -642,6 +647,7 @@ function renderCourses() {
             // Access restriction label for specific administrative folders
             let isRestricted = false;
             let restrictionHTML = "";
+            let courseLink = course.link || 'https://alshamcenter.de';
             if (cat.category === 'admin' && (course.name.includes("منتدى المعلمين") || course.name.includes("المساق الإداري"))) {
                 isRestricted = true;
                 restrictionHTML = `
@@ -677,7 +683,7 @@ function renderCourses() {
                     <span class="text-xs text-slate-500 flex items-center gap-1">
                         <i class="fas fa-clock text-teal-400"></i> ${course.hours}
                     </span>
-                    <a href="${isRestricted ? '#' : 'https://alshamcenter.de'}" class="text-xs font-bold px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white transition-all flex items-center gap-2 group-hover:scale-105">
+                    <a href="${isRestricted ? '#' : courseLink}" class="text-xs font-bold px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white transition-all flex items-center gap-2 group-hover:scale-105">
                         <span data-i18n="joinNow">${translations[currentLang].joinNow}</span>
                         <i class="fas ${currentLang === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right'} text-[10px]"></i>
                     </a>
