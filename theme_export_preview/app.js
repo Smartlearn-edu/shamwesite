@@ -509,6 +509,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // 10. Generate sparkling stars in Motivation Section
     generateSparkles();
     generateConfetti();
+
+    // 11. Check Moodle Login Status
+    checkMoodleLogin();
 });
 
 // Set Language UI & Direction
@@ -862,6 +865,46 @@ function generateConfetti() {
             }, 5000);
         }
     }, 8000);
+}
+
+// Check Moodle Login Status
+function checkMoodleLogin() {
+    const loginBtn = document.getElementById("header-login-btn");
+    const dashboardBtn = document.getElementById("header-dashboard-btn");
+
+    if (!loginBtn || !dashboardBtn) return;
+
+    // Fetch login status from Moodle relative endpoint
+    fetch('/login_status.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data && data.loggedin) {
+                // User is logged in: hide login, show dashboard
+                loginBtn.classList.add("hidden");
+                loginBtn.classList.remove("sm:inline-flex");
+                dashboardBtn.classList.remove("hidden");
+                dashboardBtn.classList.add("inline-flex");
+            } else {
+                // User is not logged in: show login, hide dashboard
+                loginBtn.classList.remove("hidden");
+                loginBtn.classList.add("sm:inline-flex");
+                dashboardBtn.classList.add("hidden");
+                dashboardBtn.classList.remove("inline-flex");
+            }
+        })
+        .catch(error => {
+            console.error("Error checking login status:", error);
+            // Fallback: show login, hide dashboard
+            loginBtn.classList.remove("hidden");
+            loginBtn.classList.add("sm:inline-flex");
+            dashboardBtn.classList.add("hidden");
+            dashboardBtn.classList.remove("inline-flex");
+        });
 }
 
 // Theme Switcher Toggle (Dark / Light Mode)
