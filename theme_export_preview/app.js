@@ -355,7 +355,16 @@ const coursesData = [
                 "nameEN": "Stage 3 - Level A",
                 "nameDE": "Stufe 3 - Niveau A",
                 "hours": "60 - 260 Hours",
-                "description": "الانتقال لقراءة القصص الكاملة، توسيع دائرة التعبير اللفظي، فهم القواعد النحوية الأساسية والتحدث بطلاقة متزايدة."
+                "description": "الانتقال لقراءة القصص الكاملة، توسيع دائرة التعبير اللفظي، فهم القواعد النحوية الأساسية والتحدث بطلاقة متزايدة.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=52"
+            },
+            {
+                "name": "المرحلة الثالثة المستوى ( ب )",
+                "nameEN": "Stage 3 - Level B",
+                "nameDE": "Stufe 3 - Niveau B",
+                "hours": "60 - 260 Hours",
+                "description": "الاستمرار في قراءة القصص، والتعبير المتقدم عن الأفكار كتابياً وشفهياً، وإتقان مهارات التحدث بطلاقة، مع مناقشة مواضيع متنوعة.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=41"
             }
         ]
     },
@@ -370,21 +379,24 @@ const coursesData = [
                 "nameEN": "Quran Recitation Prep Stage",
                 "nameDE": "Koranrezitation Vorbereitungsstufe",
                 "hours": "Custom Plan",
-                "description": "تعليم مخارج الحروف العربية وضبط النطق السليم لقصار السور وتهيئة التلميذ للبدء بالتلاوة والنظر في المصحف الشريف."
+                "description": "تعليم مخارج الحروف العربية وضبط النطق السليم لقصار السور وتهيئة التلميذ للبدء بالتلاوة والنظر في المصحف الشريف.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=88"
             },
             {
                 "name": "مرحلة ضبط تلاوة القرآن الكريم",
                 "nameEN": "Quran Recitation Mastery Stage",
                 "nameDE": "Koranrezitation Präzisionsstufe",
                 "hours": "Custom Plan",
-                "description": "تطبيق قواعد التجويد الأساسية كالمدود والغنن والترتيل ببطء وتصحيح التلاوة المباشرة لكبار وصغار الطلاب."
+                "description": "تطبيق قواعد التجويد الأساسية كالمدود والغنن والترتيل ببطء وتصحيح التلاوة المباشرة لكبار وصغار الطلاب.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=89"
             },
             {
                 "name": "مرحلة حفظ القرآن الكريم",
                 "nameEN": "Quran Memorization Stage",
                 "nameDE": "Koran-Auswendiglernstufe",
                 "hours": "Custom Plan",
-                "description": "برامج مخصصة لحفظ أجزاء من القرآن الكريم بطريقة المراجعة والربط والتمكين المستمر مع تسميع مباشر مع المعلمين."
+                "description": "برامج مخصصة لحفظ أجزاء من القرآن الكريم بطريقة المراجعة والربط والتمكين المستمر مع تسميع مباشر مع المعلمين.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=87"
             }
         ]
     },
@@ -399,7 +411,8 @@ const coursesData = [
                 "nameEN": "Teacher Prep (Arabic & Culture)",
                 "nameDE": "Lehrerfortbildung (Arabisch & Kultur)",
                 "hours": "Full Program",
-                "description": "تأهيل وتدريب المعلمين والمعلمات على تقنيات التدريس الرقمي (Zoom, Moodle, Wordwall) وتخطيط الدروس وبناء خطط علاجية متكاملة."
+                "description": "تأهيل وتدريب المعلمين والمعلمات على تقنيات التدريس الرقمي (Zoom, Moodle, Wordwall) وتخطيط الدروس وبناء خطط علاجية متكاملة.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=96"
             }
         ]
     },
@@ -414,35 +427,40 @@ const coursesData = [
                 "nameEN": "Administrative Path",
                 "nameDE": "Verwaltungspfad",
                 "hours": "Direct Access",
-                "description": "تنسيق الجداول، مراجعة الخطط الدراسية العامة للمركز، والعمليات الإدارية الخاصة بتسجيل الاشتراكات والمستحقات."
+                "description": "تنسيق الجداول، مراجعة الخطط الدراسية العامة للمركز، والعمليات الإدارية الخاصة بتسجيل الاشتراكات والمستحقات.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=328"
             },
             {
                 "name": "حجز موعد",
                 "nameEN": "Book an Appointment",
                 "nameDE": "Termin buchen",
                 "hours": "Online Scheduling",
-                "description": "حجز مواعيد المقابلة الشخصية وتحديد المستوى للطلاب الجدد مع المشرف التربوي أو الاجتماع بإدارة المركز."
+                "description": "حجز مواعيد المقابلة الشخصية وتحديد المستوى للطلاب الجدد مع المشرف التربوي أو الاجتماع بإدارة المركز.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=327"
             },
             {
                 "name": "منتدى المعلمين",
                 "nameEN": "Teachers' Forum",
                 "nameDE": "Lehrerforum",
                 "hours": "Restricted",
-                "description": "المساحة الخاصة بالمعلمين لمناقشة طرق تدريس المقررات وتبادل النماذج التقييمية وإعداد ملفات الأنشطة المشتركة."
+                "description": "المساحة الخاصة بالمعلمين لمناقشة طرق تدريس المقررات وتبادل النماذج التقييمية وإعداد ملفات الأنشطة المشتركة.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=65"
             },
             {
                 "name": "القناة العامة لمركز الشام",
                 "nameEN": "Al-Sham General Channel",
                 "nameDE": "Allgemeiner Al-Sham Kanal",
                 "hours": "Information",
-                "description": "مساحة إعلامية لنشر الأخبار والتطورات وقرارات المركز الهامة لأولياء الأمور والطلاب بشكل فوري ومباشر."
+                "description": "مساحة إعلامية لنشر الأخبار والتطورات وقرارات المركز الهامة لأولياء الأمور والطلاب بشكل فوري ومباشر.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=64"
             },
             {
                 "name": "منتدى أولياء الأمور",
                 "nameEN": "Parents' Forum",
                 "nameDE": "Elternforum",
                 "hours": "Discussion",
-                "description": "تعزيز الشراكة بين الأسرة والمركز ومشاركة الموارد التعليمية والآراء والمقالات التربوية المفيدة للتربية الإسلامية."
+                "description": "تعزيز الشراكة بين الأسرة والمركز ومشاركة الموارد التعليمية والآراء والمقالات التربوية المفيدة للتربية الإسلامية.",
+                "link": "https://alshamcenter.de/enrol/index.php?id=26"
             }
         ]
     }
@@ -666,7 +684,7 @@ function renderCourses() {
             // Card Structure
             card.innerHTML += `
                 <div class="relative z-10">
-                    <div class="flex items-center justify-between mb-4">
+                    <div class="flex flex-wrap items-center justify-between mb-4 gap-2">
                         <span class="text-xs font-semibold px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20">
                             ${currentLang === 'ar' ? cat.name : (currentLang === 'en' ? cat.categoryEN : cat.categoryDE)}
                         </span>
@@ -825,8 +843,9 @@ function generateSparkles() {
     const container = document.getElementById("motivation-section");
     if (!container) return;
 
-    // Create 15 absolute sparkles in the motivation section
-    for (let i = 0; i < 12; i++) {
+    // Create sparkles (fewer on mobile)
+    const count = window.innerWidth < 768 ? 4 : 12;
+    for (let i = 0; i < count; i++) {
         const star = document.createElement("div");
         star.className = "star-sparkle pointer-events-none";
         
@@ -848,6 +867,8 @@ function generateConfetti() {
     if (!container) return;
 
     const colors = ["#14b8a6", "#f59e0b", "#3b82f6", "#ec4899", "#10b981"];
+
+    if (window.innerWidth < 768) return; // Skip on mobile for performance
 
     // Periodic confetti blast every 5 seconds
     setInterval(() => {
@@ -890,25 +911,33 @@ function checkMoodleLogin() {
         })
         .then(data => {
             if (data && data.loggedin) {
-                // User is logged in: hide login, show dashboard
+                // User is logged in: hide login everywhere, show dashboard (desktop only)
                 loginBtn.classList.add("hidden");
                 loginBtn.classList.remove("sm:inline-flex");
-                dashboardBtn.classList.remove("hidden");
-                dashboardBtn.classList.add("inline-flex");
-            } else {
-                // User is not logged in: show login, hide dashboard
-                loginBtn.classList.remove("hidden");
-                loginBtn.classList.add("sm:inline-flex");
+                
                 dashboardBtn.classList.add("hidden");
+                dashboardBtn.classList.add("sm:inline-flex");
+                dashboardBtn.classList.remove("inline-flex");
+            } else {
+                // User is not logged in: show login (desktop only), hide dashboard everywhere
+                loginBtn.classList.add("hidden");
+                loginBtn.classList.add("sm:inline-flex");
+                loginBtn.classList.remove("inline-flex");
+                
+                dashboardBtn.classList.add("hidden");
+                dashboardBtn.classList.remove("sm:inline-flex");
                 dashboardBtn.classList.remove("inline-flex");
             }
         })
         .catch(error => {
             console.error("Error checking login status:", error);
-            // Fallback: show login, hide dashboard
-            loginBtn.classList.remove("hidden");
+            // Fallback: show login (desktop only), hide dashboard everywhere
+            loginBtn.classList.add("hidden");
             loginBtn.classList.add("sm:inline-flex");
+            loginBtn.classList.remove("inline-flex");
+            
             dashboardBtn.classList.add("hidden");
+            dashboardBtn.classList.remove("sm:inline-flex");
             dashboardBtn.classList.remove("inline-flex");
         });
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Readex+Pro:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Outfit:wght@400;600;700&display=swap');
 
 :root {
     --primary-glow: radial-gradient(rgba(20, 184, 166, 0.15), rgba(0, 0, 0, 0));
@@ -16,9 +16,8 @@
 }
 
 body {
-    font-family: 'Cairo', 'Readex Pro', 'Outfit', sans-serif;
+    font-family: 'Cairo', 'Outfit', sans-serif;
     overflow-x: hidden;
-    scroll-behavior: smooth;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -45,6 +44,24 @@ body {
 .light-theme .glass-navbar {
     background: rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid var(--card-border-color);
+}
+
+@media (max-width: 768px) {
+    .glass-panel {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(15, 23, 42, 0.85);
+    }
+    .glass-navbar {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    #ambient-glows {
+        display: none;
+    }
+    .light-theme .glass-panel {
+        background: rgba(255, 255, 255, 0.95);
+    }
 }
 
 /* Custom Animations */
@@ -174,6 +191,7 @@ body {
     opacity: 0;
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
     transform: scale(1.05);
+    will-change: opacity, transform;
 }
 
 .slider-slide.active {
@@ -214,4 +232,13 @@ body {
     background: rgba(20, 184, 166, 0.2);
     border-color: rgba(20, 184, 166, 0.5);
     color: #14b8a6;
+}
+
+/* Animation Optimizations */
+.animate-float, .animate-pulse-slow, .star-sparkle, .confetti-piece {
+    will-change: transform, opacity;
+}
+section:nth-child(n+4) {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
 }
