@@ -15,7 +15,7 @@
     <!-- Tailwind CSS (Compiled) & Icons CDN -->
     <link rel="stylesheet" href="tailwind-output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen relative font-cairo overflow-x-hidden w-full">
 
@@ -33,7 +33,7 @@
             <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
                 <img src="logo.png" alt="شعار مركز الشام" class="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-all drop-shadow-md">
                 <div>
-                    <h1 class="text-base sm:text-lg md:text-xl font-extrabold text-white drop-shadow-sm group-hover:text-teal-300 transition-all hidden md:block" data-i18n="siteTitle">
+                    <h1 class="text-sm sm:text-base md:text-xl font-extrabold text-white drop-shadow-sm group-hover:text-teal-300 transition-all block shrink-0" data-i18n="siteTitle">
                         مركز الشام للثقافة والتعليم
                     </h1>
                 </div>
@@ -63,8 +63,8 @@
                 </div>
 
                 <!-- Auth / Dashboard Buttons -->
-                <a id="header-login-btn" href="https://alshamcenter.de/login" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold rounded-xl border border-slate-700/60 hover:bg-slate-900/60 text-slate-300 transition-all whitespace-nowrap">
-                    <i class="fas fa-user text-[10px] sm:text-xs"></i>
+                <a id="header-login-btn" href="https://alshamcenter.de/login" class="hidden items-center justify-center gap-2 premium-dashboard-btn">
+                    <i class="fas fa-user"></i>
                     <span data-i18n="loginBtn">تسجيل الدخول</span>
                 </a>
                 <a id="header-dashboard-btn" href="https://alshamcenter.de/local/smartdashboard" class="hidden items-center justify-center gap-2 premium-dashboard-btn">
