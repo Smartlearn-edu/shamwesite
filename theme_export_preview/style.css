@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Outfit:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap');
 
 :root {
     --primary-glow: radial-gradient(rgba(20, 184, 166, 0.15), rgba(0, 0, 0, 0));
@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: 'Cairo', 'Outfit', sans-serif;
+    font-family: 'Readex Pro', 'Outfit', sans-serif;
     overflow-x: hidden;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
