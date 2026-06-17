@@ -911,34 +911,29 @@ function checkMoodleLogin() {
         })
         .then(data => {
             if (data && data.loggedin) {
-                // User is logged in: hide login everywhere, show dashboard (desktop only)
+                // User is logged in: hide login, show dashboard everywhere
                 loginBtn.classList.add("hidden");
-                loginBtn.classList.remove("sm:inline-flex");
+                loginBtn.classList.remove("flex", "inline-flex", "sm:inline-flex");
                 
-                dashboardBtn.classList.add("hidden");
-                dashboardBtn.classList.add("sm:inline-flex");
-                dashboardBtn.classList.remove("inline-flex");
+                dashboardBtn.classList.remove("hidden", "sm:inline-flex");
+                dashboardBtn.classList.add("flex");
             } else {
-                // User is not logged in: show login (desktop only), hide dashboard everywhere
-                loginBtn.classList.add("hidden");
-                loginBtn.classList.add("sm:inline-flex");
-                loginBtn.classList.remove("inline-flex");
+                // User is not logged in: show login everywhere, hide dashboard
+                loginBtn.classList.remove("hidden", "sm:inline-flex");
+                loginBtn.classList.add("flex");
                 
                 dashboardBtn.classList.add("hidden");
-                dashboardBtn.classList.remove("sm:inline-flex");
-                dashboardBtn.classList.remove("inline-flex");
+                dashboardBtn.classList.remove("flex", "inline-flex", "sm:inline-flex");
             }
         })
         .catch(error => {
             console.error("Error checking login status:", error);
-            // Fallback: show login (desktop only), hide dashboard everywhere
-            loginBtn.classList.add("hidden");
-            loginBtn.classList.add("sm:inline-flex");
-            loginBtn.classList.remove("inline-flex");
+            // Fallback: show login everywhere, hide dashboard
+            loginBtn.classList.remove("hidden", "sm:inline-flex");
+            loginBtn.classList.add("flex");
             
             dashboardBtn.classList.add("hidden");
-            dashboardBtn.classList.remove("sm:inline-flex");
-            dashboardBtn.classList.remove("inline-flex");
+            dashboardBtn.classList.remove("flex", "inline-flex", "sm:inline-flex");
         });
 }
 
